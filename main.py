@@ -1,6 +1,9 @@
+import os
 from pathlib import Path
+import json
 import asyncio
 import tomllib
+import geopandas as gpd
 import pandas as pd
 import click
 
@@ -12,7 +15,7 @@ with open("config.toml", "rb") as f:
 
 async def download_file(ds: pd.Series, re_extract):
     outpath = f"{config['destination_dir']}/{ds['filename']}"
-    url = f"https://www.census.gov/{ds['directory']}/{ds['filename']}"
+    url = f"https://www2.census.gov/{ds['directory']}/{ds['filename']}"
 
     if Path(outpath).exists() and not re_extract:
         print(f"{ds['filename']} already downloaded, continuing")
@@ -52,7 +55,14 @@ def extract(re_extract):
 
 
 def transform():
-    pass
+    for path in os.listdir(config["destination_dir"]):
+        stem = Path(path).stem
+        try:
+            frame = gpd.read_file(str(Path.cwd() / config["destination_dir"] / path))
+            with open(Path("conf") / f"{stem}.json", "w") as f:
+                json.dump(list(frame.columns), f)
+        except:
+            print(stem, "failed to open")
 
 
 def load():
