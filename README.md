@@ -58,5 +58,4 @@ destination_dir="/where/you/want/to/download/files
         - elementary
         - secondary
 - blocks *for crosswalks and other ETL use*
-    - Keeping these at the 10-year marks, and not worrying about
-      mid-decade adjustments for now
+    - Updates after decennial censuses
