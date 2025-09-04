@@ -1,0 +1,10 @@
+{
+    "geoid_prefix": "9700000US",
+    "geoid_suffix_col": "name",
+    "geo_type": "zcta",
+    "renames": {
+        "ZCTA5CE": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "geoid_prefix": "1400000US",
+    "geoid_suffix_col": "__geoid",
+    "geo_type": "tract",
+    "renames": {
+        "GEOID": "__geoid",
+        "NAMELSAD": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
+    }
+}

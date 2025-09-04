@@ -1,0 +1,11 @@
+{
+    "geoid_prefix": "6200000US",
+    "geoid_suffix_col": "__geoid",
+    "geo_type": "state_house_district",
+    "renames": {
+        "GEOID": "__geoid",
+        "NAMELSAD": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
+    }
+}

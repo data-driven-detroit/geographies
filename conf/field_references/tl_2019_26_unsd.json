@@ -1,0 +1,11 @@
+{
+    "geoid_prefix": "9700000US",
+    "geoid_suffix_col": "__geoid",
+    "geo_type": "unified_school_district",
+    "renames": {
+        "GEOID": "__geoid",
+        "NAME": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "geoid_prefix": "0500000US",
+    "geoid_suffix_col": "__geoid",
+    "geo_type": "county",
+    "renames": {
+        "GEOID": "__geoid",
+        "NAMELSAD": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
+    }
+}

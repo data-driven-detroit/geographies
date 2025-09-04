@@ -1,0 +1,11 @@
+{
+    "geoid_prefix": "5000000US",
+    "geoid_suffix_col": "__geoid",
+    "geo_type": "congressional_district",
+    "renames": {
+        "GEOID": "__geoid",
+        "NAMELSAD": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
+    }
+}

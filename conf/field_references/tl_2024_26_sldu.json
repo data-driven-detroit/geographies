@@ -1,0 +1,11 @@
+{
+    "geoid_prefix": "610U900US",
+    "geoid_suffix_col": "__geoid",
+    "geo_type": "state_senate_district",
+    "renames": {
+        "GEOID": "__geoid",
+        "NAMELSAD": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
+    }
+}
