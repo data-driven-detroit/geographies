@@ -15,7 +15,7 @@
 
 ## Setup
 
-Uses uv for dependency management, if you have it installed you can run `uv sync` to install all dependencies.
+This package uses uv for dependency management. if you have it installed you can run `uv sync` to install all dependencies.
 
 ## config.toml
 
