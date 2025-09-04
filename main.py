@@ -1,3 +1,9 @@
+"""
+This file includes all steps of the ETL. You can skip them with flags when
+running the script. This will download from census if you haven't already,
+TODO transform to a uniform schema, and TODO load into your database.
+"""
+
 from pathlib import Path
 import asyncio
 import tomllib
