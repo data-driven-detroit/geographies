@@ -1,11 +1,10 @@
-import os
 from pathlib import Path
-import json
 import asyncio
 import tomllib
 import geopandas as gpd
 import pandas as pd
 import click
+from pyogrio.errors import DataSourceError
 
 
 # Global configuration
@@ -23,12 +22,20 @@ async def download_file(ds: pd.Series, re_extract):
     
     print(f"Downloading {ds['filename']}")
     proc = await asyncio.create_subprocess_exec(
-        "curl", url, "-o", outpath,
+        "curl", "-H", 
+        '"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"', 
+        url, "-o", outpath, "-k",
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
     )
 
     await proc.wait()
+
+    if proc.returncode != 0:
+        stderr_output = await proc.stderr.read()
+        print(f"ERROR downloading {ds['filename']}: {stderr_output.decode()}")
+        return None  # or raise exception
+
     return ds['filename']
 
 
@@ -55,15 +62,15 @@ def extract(re_extract):
 
 
 def transform():
-    for path in os.listdir(config["destination_dir"]):
-        stem = Path(path).stem
+    datasets = pd.read_csv("conf/tiger_mi_sources.csv")
+    for _, ds in datasets.iterrows():
         try:
-            frame = gpd.read_file(str(Path.cwd() / config["destination_dir"] / path))
-            with open(Path("conf") / f"{stem}.json", "w") as f:
-                json.dump(list(frame.columns), f)
-        except:
-            print(stem, "failed to open")
+            frame = gpd.read_file(Path(config["destination_dir"]) / Path(ds["filename"]))
 
+        except DataSourceError:
+            print(f"Error reading {ds['filename']}")
+
+# https://www2.census.gov/geo/tiger/TIGER2011/UNSD/tl_2011_26_unsd.zip
 
 def load():
     pass

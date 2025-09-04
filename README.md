@@ -41,4 +41,4 @@
               mid-decade adjustments for now
 - [ ] The updates should be as close to completely automated as possible
 - [ ] The text on the main page should not require coding to make revisions
-
+- [ ] These are all transformed to EPSG:2898
