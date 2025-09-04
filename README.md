@@ -13,6 +13,9 @@
       geography matches the new incoming geography to avoid duplicating 
       geographies. End dates should be updated as well.
 
+## Setup
+
+Uses uv for dependency management, if you have it installed you can run `uv sync` to install all dependencies.
 
 ## config.toml
 
