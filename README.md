@@ -1,44 +1,50 @@
-# Goals for SDC and HIP
+# D3 Census Geographies
 
-- [ ] The geographies should be tightly specified and change-managed
-    - The main strategy to accomplish this is to have a table that includes all
-      geographies with start and end dates. That way we can have a picture of
-      which geographies were valid at any given point in time. Mostly we're
-      covering from 2010 onward, though for main-line census geographies we'll
-      include back to 2000 as well.
-    - [ ] TODO script to evaluate whether the currently active geography matches 
-          the new incoming geography and therefore ignore the new.
-    - [ ] Geography types:
-        - state
-            - Basically don't change so only one entry from 2000-present
-        - county
-            - Haven't changed since 1970s, and not majorly in at least 100 years
-              so we'll have single entries from 2000-present
-        - county subdivisions
-            - TODO: Investigate
-        - tracts
-            - Keeping these at the 10-year marks, and not worrying about
-              mid-decade adjustments for now
-        - zctas
-            - TODO: Investigate
-        - congressional district
-            - Change with the decennial census, but we have an extra change in
-              2023 due to a court challenge
-        - state senate district
-            - Change with the decennial census, but we have an extra change in
-              2023 due to a court challenge
-        - state house district
-            - Change with the decennial census, but we have an extra change in
-              2023 due to a court challenge
-        - school district 
-            - These change almost yearly, though have calmed in recent years
-            - District types:
-                - unified *this is almost all of them*
-                - elementary
-                - secondary
-        - blocks *for crosswalks and other ETL use*
-            - Keeping these at the 10-year marks, and not worrying about
-              mid-decade adjustments for now
-- [ ] The updates should be as close to completely automated as possible
-- [ ] The text on the main page should not require coding to make revisions
-- [ ] These are all transformed to EPSG:2898
+## Goals
+
+- [ ] We only support a subset of the available census geographies,
+      though we can add others in the future.
+- [ ] The geographies should all live on a single table with geography type, 
+      start date and end date as fields.
+- [ ] Changes to geographies should be carefully tracked
+- [ ] Final projections will be EPSG:2898 (transform for northern
+      Michigan work if necessary)
+- [ ] TODO: We need a script script to evaluate whether the currently active 
+      geography matches the new incoming geography to avoid duplicating 
+      geographies. End dates should be updated as well.
+
+
+## Currently supported geography types
+
+- state
+    - MI hasn't changed since the 1970s and that was a
+      lake-boundary change.
+- county
+    - Haven't changed since 1970s, and not majorly in at least 100 years
+      so we'll have single entries from 2000-present
+- county subdivisions
+    - Currently keeping only the most recent -- TODO: more research is
+      needed to understand how these change.
+- tracts
+    - Keeping these at the 10-year marks, and not worrying about
+      mid-decade adjustments for now
+- zctas
+    - Change with decennial censuses
+- congressional district
+    - Change with the decennial census, but we have an extra change in
+      2023 due to a court challenge
+- state senate district
+    - Change with the decennial census, but we have an extra change in
+      2023 due to a court challenge
+- state house district
+    - Change with the decennial census, but we have an extra change in
+      2023 due to a court challenge
+- school district 
+    - These change almost yearly, though have calmed in recent years
+    - District types:
+        - unified *this is almost all of them*
+        - elementary
+        - secondary
+- blocks *for crosswalks and other ETL use*
+    - Keeping these at the 10-year marks, and not worrying about
+      mid-decade adjustments for now
