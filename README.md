@@ -19,7 +19,7 @@
 The config.toml can live at the root of the project and only needs one field:
 
 ```toml
-destination_dir="\where\you\want\to\download\files
+destination_dir="/where/you/want/to/download/files
 ```
 
 
