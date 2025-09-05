@@ -59,3 +59,12 @@ destination_dir="/where/you/want/to/download/files
         - secondary
 - blocks *for crosswalks and other ETL use*
     - Updates after decennial censuses
+
+
+## TODOs
+
+- [ ] I grab the full-US file for congressional districts before
+  the latest year where the census bureau broke them into
+  separate files. I think I'll grab all of them, not that we do
+  much political analysis, but they aren't many and it's useful
+  for comparisons,

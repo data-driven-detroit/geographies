@@ -1,9 +1,9 @@
 {
-    "geoid_prefix": "1400000US",
+    "geoid_prefix": "1400000US26",
     "geoid_suffix_col": "__geoid",
     "geo_type": "tract",
     "renames": {
-        "TRACTCE00": "__geoid",
+        "CTIDFP00": "__geoid",
         "NAMELSAD00": "name",
         "ALAND00": "aland",
         "AWATER00": "awater"

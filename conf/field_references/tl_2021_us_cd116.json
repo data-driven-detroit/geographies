@@ -3,9 +3,9 @@
     "geoid_suffix_col": "__geoid",
     "geo_type": "congressional_district",
     "renames": {
-        "GEOID20": "__geoid",
-        "NAMELSAD20": "name",
-        "ALAND20": "aland",
-        "AWATER20": "awater"
+        "GEOID": "__geoid",
+        "NAMELSAD": "name",
+        "ALAND": "aland",
+        "AWATER": "awater"
     }
 }

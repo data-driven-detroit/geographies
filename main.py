@@ -6,6 +6,7 @@ TODO transform to a uniform schema, and TODO load into your database.
 
 from pathlib import Path
 import json
+import datetime
 import asyncio
 import tomllib
 import geopandas as gpd
@@ -16,7 +17,6 @@ import pandera.pandas as pa
 from pandera.typing.pandas import Series
 from pandera.engines.geopandas_engine import Geometry
 from sqlalchemy import create_engine
-from datetime import date
 
 
 class Geographies(pa.DataFrameModel):
@@ -25,8 +25,8 @@ class Geographies(pa.DataFrameModel):
     name: Series[str]
     aland: Series[float]
     awater: Series[float]
-    start_date: Series[date]
-    end_date: Series[date]
+    start_date: Series[datetime.date]
+    end_date: Series[datetime.date]
     geometry: Series[Geometry]
 
 
@@ -99,16 +99,25 @@ def extract(re_extract):
 
 @pa.check_types()
 def normalize_frame(frame, fref, start_date, end_date) -> Geographies:
-    return (
+    normalized = (
         frame
         .rename(columns=fref["renames"])
         .assign(
             geoid=lambda frame: fref["geoid_prefix"] + frame[fref["geoid_suffix_col"]],
-            geo_type=fref["geotype"],
-            start_date=pd.to_datetime(start_date).dt.date,
-            end_date=pd.to_datetime(end_date).dt.date,
-        )[OUTPUT_COLS]
+            geo_type=fref["geo_type"],
+            start_date=datetime.datetime.fromisoformat(start_date).date(),
+            end_date=datetime.datetime.fromisoformat(end_date).date(),
+        )
     )
+
+    if fref["geo_type"] == "zcta":
+        # Remove non-michigan ZCTAs to avoid huge files
+        normalized = normalized[
+            normalized["name"].str.startswith("48")
+            | normalized["name"].str.startswith("49")
+        ]
+
+    return normalized[OUTPUT_COLS]
 
 
 def transform_and_load():
@@ -117,6 +126,7 @@ def transform_and_load():
     
     if_exists = "replace"
     for _, ds in datasets.iterrows():
+        print(f"validating and loading {ds['filename']}")
         try:
             frame = gpd.read_file(Path(config["destination_dir"]) / ds["filename"])
             fref = json.loads((Path("conf") / "field_references" / ds["field_reference"]).read_text())
