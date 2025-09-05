@@ -1,3 +1,9 @@
+"""
+This script was used as a helper to create the field reference files found on conf.
+Not required currently, but could be useful in the future when downloading new
+datasets.
+"""
+
 import json
 import os
 from pathlib import Path
@@ -9,11 +15,7 @@ import tomllib
 with open("config.toml", "rb") as f:
     config = tomllib.load(f)
 
-# 8600000US ZCTAs 
-# 6100000US State senate district
-# 6200000US State house district
-
-
+# This is a rough template for the field reference file
 TO_APPEND = """
 
 {
