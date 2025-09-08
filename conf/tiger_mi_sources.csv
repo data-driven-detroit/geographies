@@ -27,6 +27,6 @@
 2023-01-01,2029-12-31,elementary_school_district,www2.census.gov,geo/tiger/TIGER2024/ELSD,tl_2024_26_elsd.zip,tl_2024_26_elsd.json,"End date is end of decennial census period, but this could change more frequently"
 2020-01-01,2029-12-31,county_subdivision,www2.census.gov,geo/tiger/TIGER2024/COUSUB,tl_2024_26_cousub.zip,tl_2024_26_cousub.json,This are weird and we use them all the time. They are either Minor Civil Divisions (in Michigan) or Census County Division (in about 20 states). They can change but the census really tries to keep them stable for better data comparisons.
 2010-01-01,2019-12-31,county_subdivision,www2.census.gov,geo/tiger/TIGER2019/COUSUB,tl_2019_26_cousub.zip,tl_2019_26_cousub.json,
-2000-01-01,2009-12-31,zctas,www2.census.gov,geo/tiger/TIGER2009/26_MICHIGAN,tl_2009_26_zcta5.zip,tl_2009_26_zcta5.json,"ZCTA 3 and ZCTA 5 are provided, though I couldn't find information on the difference."
-2010-01-01,2019-12-31,zctas,www2.census.gov,geo/tiger/TIGER2020/ZCTA5,tl_2020_us_zcta510.zip,tl_2020_us_zcta510.json,
-2020-01-01,2029-12-31,zctas,www2.census.gov,geo/tiger/TIGER2020/ZCTA520,tl_2020_us_zcta520.zip,tl_2020_us_zcta520.json,"ZCTAs don't update with the postal service updates, they only are adjusted at decennial? Or at least the bureau website doesn't mention mid-decade adjustments."
+2000-01-01,2009-12-31,zcta,www2.census.gov,geo/tiger/TIGER2009/26_MICHIGAN,tl_2009_26_zcta5.zip,tl_2009_26_zcta5.json,"ZCTA 3 and ZCTA 5 are provided, though I couldn't find information on the difference."
+2010-01-01,2019-12-31,zcta,www2.census.gov,geo/tiger/TIGER2020/ZCTA5,tl_2020_us_zcta510.zip,tl_2020_us_zcta510.json,
+2020-01-01,2029-12-31,zcta,www2.census.gov,geo/tiger/TIGER2020/ZCTA520,tl_2020_us_zcta520.zip,tl_2020_us_zcta520.json,"ZCTAs don't update with the postal service updates, they only are adjusted at decennial? Or at least the bureau website doesn't mention mid-decade adjustments."
