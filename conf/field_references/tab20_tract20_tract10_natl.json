@@ -1,0 +1,23 @@
+{
+    "delimiter": "|",
+    "geoid_source_prefix": "1400000US",
+    "geoid_source_suffix_col": "__geoid_source",
+    "geoid_sink_prefix": "1400000US",
+    "geoid_sink_suffix_col": "__geoid_sink",
+    "geo_type_source": "tract",
+    "geo_type_sink": "tract",
+    "in_types":{
+        "GEOID_TRACT_10": "str",
+        "GEOID_TRACT_20": "str"
+    },
+    "renames": {
+        "GEOID_TRACT_20": "__geoid_source",
+        "AREALAND_TRACT_20": "__aland_source",
+        "AREAWATER_TRACT_20": "__awater_source",
+        "GEOID_TRACT_10": "__geoid_sink",
+        "AREALAND_TRACT_10": "__aland_sink",
+        "AREAWATER_TRACT_10": "__awater_sink",
+        "AREALAND_PART": "aland_part",
+        "AREAWATER_PART": "awater_part"
+    }
+}

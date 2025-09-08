@@ -1,0 +1,2 @@
+start_date_source,end_date_source,start_date_sink,end_date_sink,geo_type,urlroot,directory,filename,field_reference,notes
+2010-01-01,2019-12-31,2020-01-01,2029-12-31,tract,www2.census.gov,geo/docs/maps-data/data/rel2020/tract,tab20_tract20_tract10_natl.txt,tab20_tract20_tract10_natl.json,no notes
