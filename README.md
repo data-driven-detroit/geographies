@@ -15,14 +15,24 @@
 
 ## Setup
 
-This package uses uv for dependency management. if you have it installed you can run `uv sync` to install all dependencies.
+This package uses uv for dependency management. If you have it installed you 
+can run `uv sync` to install all dependencies.
 
 ## config.toml
 
-The config.toml can live at the root of the project and only needs one field:
+The config.toml can live at the root of the project and needs the
+directory where you'd like to download the shapefiles, and your
+database credentials.
 
 ```toml
 destination_dir="/where/you/want/to/download/files
+
+[db]
+user="username"
+password="pass"
+host="hostname"
+port="5432"
+database="databasename"
 ```
 
 
@@ -67,4 +77,4 @@ destination_dir="/where/you/want/to/download/files
   the latest year where the census bureau broke them into
   separate files. I think I'll grab all of them, not that we do
   much political analysis, but they aren't many and it's useful
-  for comparisons,
+  for comparisons.
