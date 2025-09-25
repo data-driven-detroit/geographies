@@ -25,7 +25,7 @@ directory where you'd like to download the shapefiles, and your
 database credentials.
 
 ```toml
-destination_dir="/where/you/want/to/download/files
+destination_dir="/where/you/want/to/download/files"
 
 [db]
 user="username"
